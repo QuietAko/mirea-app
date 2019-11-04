@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, Button, Alert } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
-import Camera from '../components/Camera.js';
-import Focus from '../components/Focus.js';
+import List from '../components/AppFooter.js'
+import CreatorGid from '../components/CreatorGid.js'
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
@@ -11,31 +11,17 @@ class CameraScreen extends React.Component {
   render() {
     return (
 
-      <Focus/>
+      <CreatorGid/>
 
     )
   }
 }
 
 
-class makeGuide extends React.Component {
-  render() {
-    return (
-      <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-        <Button
-          title="Сделать фото "
-        />
-      </View>
-    );
-  }
-}
-
 class chooseGuide extends React.Component {
   render() {
     return (
-      <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Settings!</Text>
-      </View>
+      <List/>
     );
   }
 }
@@ -43,7 +29,7 @@ class chooseGuide extends React.Component {
 const nav = createBottomTabNavigator(
   {
     Создать: CameraScreen,
-    Посмотреть: chooseGuide,
+    Экскурсии: chooseGuide,
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -57,8 +43,10 @@ const nav = createBottomTabNavigator(
         marginBottom: 15
       },
       activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
+      inactiveTintColor: 'gray'
     },
+    initialRouteName: "Создать"
+
   }
 );
 
